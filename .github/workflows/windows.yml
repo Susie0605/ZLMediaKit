@@ -29,6 +29,12 @@ jobs:
           cmakeAppendedArgs: ''
           cmakeBuildType: 'Release'
 
+      - name: 执行构建
+        run: cmake --build build --config Release --parallel
+      
+      - name: 列出生成文件
+        run: Get-ChildItem -Recurse build
+
       - name: 设置环境变量
         run: |
           $dateString = Get-Date -Format "yyyy-MM-dd"
