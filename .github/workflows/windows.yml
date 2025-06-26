@@ -39,9 +39,8 @@ jobs:
           echo "DATE=$dateString" >> $env:GITHUB_ENV
 
       - name: 打包二进制
-        id: upload
+        uses: actions/upload-artifact@v4
         with:
-          upload-artifact: true
-          upload-tag: "nightly"
-
-      
+          name: my-build-${{ env.BRANCH }}-${{ env.DATE }}
+          path: build/
+            
