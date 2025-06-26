@@ -26,8 +26,9 @@ jobs:
         with:
           useVcpkgToolchainFile: true
           buildDirectory: '${{github.workspace}}/build'
-          cmakeAppendedArgs: ''
+          cmakeAppendedArgs: '-DENABLE_SERVER=ON'
           cmakeBuildType: 'Release'
+  
 
       - name: 执行构建
         run: cmake --build build --config Release --parallel
